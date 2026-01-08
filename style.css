@@ -1,0 +1,165 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main { flex: 1; padding: 40px 20px; }
+
+/* --- HEADER APPLE STYLE --- */
+.main-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 12px 0;
+}
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo { font-size: 1.3rem; letter-spacing: -0.5px; }
+.logo .firstname { font-weight: 300; color: #333; }
+.logo .lastname { font-weight: 600; color: #000; }
+
+.nav-minimal ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+.nav-minimal a {
+    text-decoration: none;
+    color: #515154;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: 0.3s;
+}
+.nav-minimal a:hover { color: #0071e3; }
+
+.social-links { display: flex; gap: 18px; }
+.social-links img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+.social-links img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+
+/* --- GRID DE PROJETOS --- */
+.projetos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-projeto {
+    background: white;
+    width: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* A Moldura */
+.card-header-visual {
+    padding: 25px; 
+    border-radius: 20px;
+    margin: 10px;
+    background: radial-gradient(at top left, rgba(0, 113, 227, 0.1), transparent), 
+                radial-gradient(at bottom right, rgba(255, 255, 255, 1), transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px; /* Definimos a altura fixa na moldura */
+    overflow: hidden;
+}
+
+/* A Imagem dentro da moldura */
+.card-header-visual img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra suave para destacar do fundo */
+    object-fit: contain; /* Garante que o gráfico apareça inteiro sem cortes */
+}
+
+/* COMPORTAMENTO PARA QUANDO FOR PLACEHOLDER (Emoji) */
+.placeholder-img {
+    font-size: 60px; /* Aumenta o emoji para ele não sumir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* Opcional: um leve efeito de brilho no emoji */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); 
+}
+
+.card-info { padding: 24px; }
+.card-info strong { display: block; margin-bottom: 8px; font-size: 1.1rem; color: #1d1d1f; }
+.card-info p { font-size: 0.9rem; color: #86868b; line-height: 1.4; margin-bottom: 12px; }
+.card-info small { color: #0071e3; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.7rem; }
+
+/* --- FOOTER --- */
+footer {
+    padding: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #86868b;
+    border-top: 1px solid #d2d2d7;
+}
+
+/* "Se a tela tiver no máximo 768px (tamanho padrão de celular/tablet)..." */
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste os cards para não ficarem apertados */
+    .projetos-container {
+        display: flex;
+        flex-direction: column; /* Em vez de lado a lado, um embaixo do outro */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .card-projeto {
+        width: 100%; /* O card ocupa a largura total da tela do celular */
+        max-width: 400px; /* Mas não deixa ele ficar gigante em tablets */
+        margin-bottom: 20px;
+    }
+
+    /* 2. Ajuste o texto do Cabeçalho */
+    h1 {
+        font-size: 1.8rem; /* Diminui o título principal para não quebrar linha feio */
+    }
+
+    /* 3. Ajuste os ícones e emojis */
+    .placeholder-img {
+        font-size: 40px; /* Diminui um pouco o emoji para caber na moldura menor */
+    }
+}
