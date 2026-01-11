@@ -30,7 +30,7 @@ main { flex: 1; padding: 40px 20px; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 8px 0;
 }
 
 .logo { font-size: 1.3rem; letter-spacing: -0.5px; }
@@ -78,11 +78,13 @@ main { flex: 1; padding: 40px 20px; }
     color: inherit;
     display: flex;
     flex-direction: column;
+    border: 1px solid transparent;
 }
 
 .card-projeto:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border-color: #0071e3;
 }
 
 /* A Moldura */
@@ -110,6 +112,27 @@ main { flex: 1; padding: 40px 20px; }
     object-fit: contain; /* Garante que o gráfico apareça inteiro sem cortes */
 }
 
+/* 1. Prepara o card para a transição */
+.card-projeto {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave estilo iOS */
+    cursor: pointer;
+    overflow: hidden; /* Garante que nada saia da borda arredondada */
+    border: 1px solid rgba(0,0,0,0.05); /* Borda quase invisível */
+}
+
+/* 2. O efeito quando o mouse passa por cima (Hover) */
+.card-projeto:hover {
+    transform: translateY(-8px) scale(1.02); /* Sobe um pouco e cresce levemente */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Sombra de "elevação" */
+    border-color: #0071e3; /* Borda ganha a cor de destaque (azul) */
+}
+
+/* 3. Efeito na imagem/emoji dentro do card */
+.card-projeto:hover .placeholder-img {
+    transform: scale(1.1); /* O gráfico ou ícone dentro também dá um zoom */
+    transition: transform 0.4s ease;
+}
+
 /* COMPORTAMENTO PARA QUANDO FOR PLACEHOLDER (Emoji) */
 .placeholder-img {
     font-size: 60px; /* Aumenta o emoji para ele não sumir */
@@ -128,13 +151,103 @@ main { flex: 1; padding: 40px 20px; }
 .card-info small { color: #0071e3; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.7rem; }
 
 /* --- FOOTER --- */
-footer {
-    padding: 30px;
+.footer-minimalista {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #d2d2d7; /* Linha sutil que separa o conteúdo */
     text-align: center;
-    font-size: 0.8rem;
-    color: #86868b;
-    border-top: 1px solid #d2d2d7;
+    color: #86868b; /* Cinza suave clássico */
+    font-size: 0.9rem;
 }
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #1d1d1f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #0071e3; /* Azul Apple no hover */
+}
+
+.footer-tagline {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.secao-sobre {
+    padding: 40px 20px 80px 20px;
+    text-align: center;
+    background-color: #f5f5f7; 
+}
+
+.container-sobre {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.secao-sobre h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+}
+
+.secao-sobre p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #86868b;
+    margin-bottom: 20px;
+}
+
+/* Estilo para as "Skills" (os chips) */
+.skills-chips {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skills-chips span {
+    background: #ffffff;
+    border: 1px solid #d2d2d7;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #1d1d1f;
+    transition: all 0.3s ease;
+}
+
+.skills-chips span:hover {
+    background: #0071e3;
+    color: white;
+    border-color: #0071e3;
+}
+
 
 /* "Se a tela tiver no máximo 768px (tamanho padrão de celular/tablet)..." */
 @media (max-width: 768px) {
