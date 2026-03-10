@@ -249,6 +249,13 @@ main { flex: 1; padding: 40px 20px; }
 }
 
 
+
+@media (max-width: 768px) {
+    .container-grafico-full { padding: 20px; }
+    .moldura-plotly-interna { height: 400px; }
+}
+
+
 /* "Se a tela tiver no máximo 768px (tamanho padrão de celular/tablet)..." */
 @media (max-width: 768px) {
     

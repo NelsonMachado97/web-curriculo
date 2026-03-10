@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NelsonAnalytics | F1 Heritage</title>
+    <link rel="stylesheet" href="graficoF1.css">
+</head>
+<body class="body-visualizacao">
+
+    <div class="container-grafico-full">
+        <header class="projeto-header">
+            <h2>🏎️ F1 Heritage: Senna vs Era Moderna</h2>
+            <div class="tags-projeto">
+                <span>Python</span> <span>OpenF1 API</span> <span>Plotly</span> <span>Pandas</span>
+            </div>
+        </header>
+
+        <section class="projeto-descricao">
+            <h3>Sobre o Projeto</h3>
+            <p>Análise de telemetria histórica utilizando a <strong>OpenF1 API</strong> para reconstruir a performance de Ayrton Senna no GP de Interlagos de 1991.</p>
+            <p>O hiato tecnológico de 32 anos resultou em uma diferença de <strong>16.958 segundos</strong> por volta em relação à referência de 2023.</p>
+        </section>
+
+        <div class="moldura-plotly-interna">
+            <div id="grafico-f1" style="height:100%; width:100%;"></div>
+            <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js"></script>
+            <script>
+                Plotly.newPlot("grafico-f1", [{
+                    x: ["Senna (1991)", "Referência (2023)"],
+                    y: [76.392, 93.35],
+                    type: "bar",
+                    marker: {color: ["#f1c40f", "#0071e3"]}
+                }], {
+                    paper_bgcolor: "rgba(0,0,0,0)",
+                    plot_bgcolor: "rgba(0,0,0,0)",
+                    margin: {t: 20, b: 40, l: 40, r: 20}
+                }, {responsive: true});
+            </script>
+        </div>
+
+        <a href="index.html" class="btn-voltar">← Voltar ao Portfólio</a>
+    </div>
+
+</body>
+</html>
